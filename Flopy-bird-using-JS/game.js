@@ -7,8 +7,8 @@ let frames = 0;
 const DEGREE = Math.PI/180;
 
 // MEMASUKAN GAMBAR
-const menudepan = new Image();
-menudepan.src = "img/menudepan.png";
+const sprite = new Image();
+sprite.src = "img/sprite.png";
 
 // MEMASUKAN SUARA
 const SCORE_S = new Audio();
@@ -81,9 +81,9 @@ const bg = {
     y: cvs.height - 226,
 
     draw: function () {
-        ctx.drawImage(menudepan, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
 
-        ctx.drawImage(menudepan, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, this.w, this.h);
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, this.w, this.h);
     }
 
 }
@@ -100,9 +100,9 @@ const fg = {
     dx : 2,
     
     draw : function(){
-        ctx.drawImage(menudepan, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
         
-        ctx.drawImage(menudepan, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, this.w, this.h);
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, this.w, this.h);
     },
     
     update: function(){
@@ -140,7 +140,7 @@ const bird = {
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(this.rotation);
-        ctx.drawImage(menudepan, bird.sX, bird.sY, this.w, this.h,- this.w/2, - this.h/2, this.w, this.h);
+        ctx.drawImage(sprite, bird.sX, bird.sY, this.w, this.h,- this.w/2, - this.h/2, this.w, this.h);
         
         ctx.restore();
     },
@@ -198,7 +198,7 @@ const getReady = {
     
     draw: function(){
         if(state.current == state.getReady){
-            ctx.drawImage(menudepan, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+            ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
         }
     }
     
@@ -215,7 +215,7 @@ const gameOver = {
     
     draw: function(){
         if(state.current == state.over){
-            ctx.drawImage(menudepan, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);   
+            ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);   
         }
     }
     
@@ -248,10 +248,10 @@ const pipes = {
             let bottomYPos = p.y + this.h + this.gap;
             
             // top pipe
-            ctx.drawImage(menudepan, this.top.sX, this.top.sY, this.w, this.h, p.x, topYPos, this.w, this.h);  
+            ctx.drawImage(sprite, this.top.sX, this.top.sY, this.w, this.h, p.x, topYPos, this.w, this.h);  
             
             // bottom pipe
-            ctx.drawImage(menudepan, this.bottom.sX, this.bottom.sY, this.w, this.h, p.x, bottomYPos, this.w, this.h);  
+            ctx.drawImage(sprite, this.bottom.sX, this.bottom.sY, this.w, this.h, p.x, bottomYPos, this.w, this.h);  
         }
     },
     
